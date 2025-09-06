@@ -1,17 +1,20 @@
-﻿using AppFinanzas.Models;
+﻿using AppFinanzas.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-public class FinanzasContext : DbContext
+namespace AppFinanzas.Infrastructure.Persistence
 {
-    public FinanzasContext(DbContextOptions<FinanzasContext> options) : base(options) { }
-
-    public DbSet<Activo> Activos => Set<Activo>();
-    public DbSet<TipoActivo> TipoActivo => Set<TipoActivo>();
-    public DbSet<OrdenInversion> Ordenes => Set<OrdenInversion>();
-    public DbSet<EstadoOrden> EstadoOrdenes => Set<EstadoOrden>();
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    public class FinanzasContext : DbContext
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(FinanzasContext).Assembly);
+        public FinanzasContext(DbContextOptions<FinanzasContext> options) : base(options) { }
+
+        public DbSet<Activo> Activos => Set<Activo>();
+        public DbSet<TipoActivo> TipoActivo => Set<TipoActivo>();
+        public DbSet<OrdenInversion> Ordenes => Set<OrdenInversion>();
+        public DbSet<EstadoOrden> EstadoOrdenes => Set<EstadoOrden>();
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(FinanzasContext).Assembly);
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿using AppFinanzas.Models;
+﻿using AppFinanzas.Domain.Entities;
 
 namespace AppFinanzas.Application.Interfaces
 {
